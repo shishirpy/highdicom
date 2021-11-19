@@ -3249,6 +3249,7 @@ class TestEnhancedSR(unittest.TestCase):
         self._institution_name = 'institute'
         self._department_name = 'department'
         self._manufacturer = 'manufacturer'
+        self._performed_procedures = [codes.LN.CTUnspecifiedBodyRegion]
 
         observer_person_context = ObserverContext(
             observer_type=codes.DCM.Person,
@@ -3330,7 +3331,8 @@ class TestEnhancedSR(unittest.TestCase):
             instance_number=self._instance_number,
             institution_name=self._institution_name,
             institutional_department_name=self._department_name,
-            manufacturer=self._manufacturer
+            manufacturer=self._manufacturer,
+            performed_procedure_codes=self._performed_procedures
         )
         assert report.SOPClassUID == '1.2.840.10008.5.1.4.1.1.88.22'
 
@@ -3367,6 +3369,7 @@ class TestComprehensiveSR(unittest.TestCase):
         self._department_name = 'department'
         self._manufacturer = 'manufacturer'
         self._procedure_reported = codes.LN.CTUnspecifiedBodyRegion
+        self._performed_procedures = [codes.LN.CTUnspecifiedBodyRegion]
 
         observer_person_context = ObserverContext(
             observer_type=codes.DCM.Person,
@@ -3448,7 +3451,8 @@ class TestComprehensiveSR(unittest.TestCase):
             instance_number=self._instance_number,
             institution_name=self._institution_name,
             institutional_department_name=self._department_name,
-            manufacturer=self._manufacturer
+            manufacturer=self._manufacturer,
+            performed_procedure_codes=self._performed_procedures,
         )
         assert report.SOPClassUID == '1.2.840.10008.5.1.4.1.1.88.33'
 
@@ -3574,6 +3578,7 @@ class TestComprehensive3DSR(unittest.TestCase):
         self._institution_name = 'institute'
         self._department_name = 'department'
         self._manufacturer = 'manufacturer'
+        self._performed_procedures = [codes.LN.CTUnspecifiedBodyRegion]
 
         observer_person_context = ObserverContext(
             observer_type=codes.DCM.Person,
@@ -3652,7 +3657,8 @@ class TestComprehensive3DSR(unittest.TestCase):
             instance_number=self._instance_number,
             institution_name=self._institution_name,
             institutional_department_name=self._department_name,
-            manufacturer=self._manufacturer
+            manufacturer=self._manufacturer,
+            performed_procedure_codes=self._performed_procedures,
         )
         assert report.SOPClassUID == '1.2.840.10008.5.1.4.1.1.88.34'
         assert report.PatientID == self._ref_dataset.PatientID
